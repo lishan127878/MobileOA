@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/mui.css" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/page/proclamation.css" />
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">公告详情</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-card" id="show-content">
+				<div class="mui-card-header" >{{listData.title}}</div>
+				<div class="mui-card-header mui-card-media notice-img">
+					<img :src="picHost+listData.pictureId" >
+						<!--<img src="../../assets/images/notice/notice-content-img.jpg" alt="" />-->
+						
+				</div>
+				<div class="mui-card-content">
+					<div class="mui-card-content-inner">
+						<p class="notice-content">{{listData.content}}</p>
+					</div>
+				</div>
+				<div class="mui-card-footer time-content">
+					<span  class="info-time ">{{listData.time|moment}}</span>
+				</div>
+			</div>
+		</div>
+		<script src="../../lib/mui.min.js"></script>
+		<script src="../../lib/vue.min.js"></script>
+		<script src="../../assets/js/config.js"></script>
+		<script src="../../assets/js/util.js"></script>
+		<script src="../../src/js/page/notice.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function(){
+				AnnoucementDetail.init();
+			})
+		</script>
+	<body>

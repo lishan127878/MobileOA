@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/mui.css" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/page/apply.css" />
+	</head>
+	<!--
+	作者：2511801192@qq.com
+	时间：2017-11-13
+	描述：待办事项列表内容页
+    -->
+
+	<body>
+         
+		<div class="mui-content mui-scroll-wrapper" id="ul-list">
+			<div class="mui-scroll">
+				<ul class="mui-table-view" v-for="data in listData">
+
+					<li class="mui-table-view-cell mui-media">
+						<a class="show-content" v-bind:data-href="[data.flowCode]" v-bind:data-id="[data.id]" v-bind:data-flow="[data.flowCode]">
+							<div class="mui-media-body mui-pull-left">
+								<span v-text="data.businessTitle"></span>
+								<p class='mui-ellipsis'>申请人：<span v-text="data.applicantName"></span></p>
+								<p class='mui-ellipsis '>申请时间：<span v-text="data.createDate"></span></p>
+							</div>
+							<div class="mui-media-body mui-pull-right">
+								<div class="apply-info" v-if="data.instanceState==1">待处理</div>
+								<div class="apply-info" v-if="data.instanceState==2">已完成</div>
+								<div class="apply-info" v-if="data.instanceState==3">被代理</div>
+							</div>
+						</a>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+		<script src="../../lib/mui.min.js"></script>
+		<script src="../../lib/vue.min.js"></script>
+		<script src="../../assets/js/config.js"></script>
+		<script src="../../assets/js/util.js"></script>
+		<script src="../../assets/js/page/schedule.js"></script>
+
+		<script type="text/javascript">
+		//待办事项列表下拉上拉刷新
+			window.formattingDataUtil.pullRefreshList("apply");
+			mui.plusReady(function() {
+				apply.init();
+			});
+		</script>
+
+	</body>
+
+</html>

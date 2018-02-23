@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/mui.css" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/iconfont.css" />	
+		<link rel="stylesheet" type="text/css" href="../../assets/css/page/application.css" />		
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" >
+			<h1 class="mui-title">应用</h1>
+		</header>
+		<div class="mui-content" >
+			<div>
+				<div id="slider" class="mui-slider">
+					<div class="mui-slider-group mui-slider-loop">
+						<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<a href="#">
+								<img src="../../assets/images/main/carousel_fourth_image.jpg">
+							</a>
+						</div>
+						<!-- 第一张 -->
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="../../assets/images/main/carousel_frist_image.jpg">
+							</a>
+						</div>
+						<!-- 第二张 -->
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="../../assets/images/main/carousel_second_image.jpg">
+							</a>
+						</div>
+						<!-- 第三张 -->
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="../../assets/images/main/carousel_third_image.jpg">
+							</a>
+						</div>
+						<!-- 第四张 -->
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="../../assets/images/main/carousel_fourth_image.jpg">
+							</a>
+						</div>
+						<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<a href="#">
+								<img src="../../assets/images/main/carousel_frist_image.jpg">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="mui-card list-tab " id="list_tab">
+				<ul class="mui-table-view mui-grid-view mui-grid-9">
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4 tab_li" data-href='announcement'>
+						<a href="#">
+							  <i class="mui-icon icon iconfont icon-_tongzhigonggao"></i>
+							<div class="mui-media-body">公告通知</div>
+						</a>
+					</li>
+					<!--<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4 tab_li" >
+						<a href="#">
+						    <i class="mui-icon icon iconfont icon-tianxie"></i>
+							<div class="mui-media-body">申请填写</div>
+						</a>
+					</li>-->
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4 tab_li" data-href='schedule'>
+						<a href="#">
+							 <i class="mui-icon icon iconfont icon-daibanshixiang"></i>
+							<div class="mui-media-body">待办事项</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4 tab_li" data-href='mobileAttendance'>
+						<a href="#">
+							 <i class="mui-icon icon iconfont icon-dingweikaoqin"></i>
+							<div class="mui-media-body">移动刷卡</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4 tab_li" data-href='petition'>
+						<a href="#">
+							<i class="mui-icon icon iconfont icon-tianxie"></i>
+							<div class="mui-media-body">申请填写</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+						<a href="#">
+							<!--<img src="../../assets/images/main/quanxiang.png" alt="" />
+							<div class="mui-media-body">我的权限</div>-->
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+						<a href="#">
+							<!--<img src="../../assets/images/main/rename .png" alt="" />
+							<div class="mui-media-body">使用说明</div>-->
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+						<a href="#">
+							<!--<span class="mui-icon mui-icon-location"></span>
+							<div class="mui-media-body">地理位置</div>-->
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+						<a href="#">
+							<!--<span class="mui-icon mui-icon-search"></span>
+							<div class="mui-media-body">搜索本站</div>-->
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4">
+						<a href="#">
+							<!--<span class="mui-icon mui-icon-phone"></span>
+							<div class="mui-media-body">快速联系</div>-->
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script src="../../lib/mui.min.js"></script>
+		<script src="../../assets/js/config.js"></script>
+		<script src="../../assets/js/util.js"></script>
+        <script src="../../src/js/page/application.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function() {
+				mainList.init();
+				mui("#slider").slider({
+					    interval: 1000 //自动轮播周期，若为0则不自动播放，默认为0,  轮播时间是毫秒单位；
+					});
+			});	
+			
+		</script>
+	</body>
+
+</html>

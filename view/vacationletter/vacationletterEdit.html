@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>休假填写</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<link href="../../assets/css/mui.css" rel="stylesheet" />
+	<link href="../../assets/css/page/vacationfill.css" rel="stylesheet" />
+	<link href="../../assets/css/mui.poppicker.css" rel="stylesheet" />
+	<link href="../../assets/css/mui.picker.min.css" rel="stylesheet" />
+	<link href="../../assets/css/page/approval.css" rel="stylesheet" />
+	<style>
+		.leaveId {
+			display: none;
+		}
+	</style>
+</head>
+<!--
+        	作者：2511801192@qq.com
+        	时间：2017-11-28
+        	描述：休假修改页
+       -->
+
+<body>
+	<!--创建休假修改头部布局-->
+	<header class="mui-bar mui-bar-nav">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		<h1 class="mui-title">修改休假申请</h1>
+	</header>
+	<div class="mui-content main" id="vacationDetailObj">
+		<div class="vacation-fill-content">
+			<ul>
+				<li class="item" id="dummy">
+					<label>申&nbsp;&nbsp;请&nbsp;人：</label>
+					<span id="username" style="padding-left: 5px;" v-text="realName"></span>
+					<span class="leaveId" id="vocationId" v-text="detailData.id"></span>
+				</li>
+				<li class="item" id="dummy">
+					<label>所在机构：</label>
+					<span id="department" style="padding-left: 5px;" v-text="departmentName"></span>
+					<span id="departmentId" class="leaveId"></span>
+				</li>
+
+				<li class="item" id="leavetype">
+					<label>休假类型：</label>
+					<input id="type" :value="detailData.vacationName" readonly="readonly" style="width:100px" />
+					<span id="value" class="selectnum" v-text="detailData.vacationType"></span>
+					<span id="showDays"></span>
+				</li>
+
+				<li class="item" id="leavestart">
+					<label>开始日期：</label>
+					<input id="start" :value="detailData.beginDate" readonly="readonly" class="listenEeven" />
+				</li>
+				<li class="item" id="startTime">
+					<label>开始时间：</label>
+					<input id="st" :value="detailData.beginTime" readonly="readonly" class="listenEeven" />
+				</li>
+				<li class="item" id="leaveend">
+					<label>结束日期：</label>
+					<input id="end" :value="detailData.endDate" readonly="readonly" class="listenEeven" />
+				</li>
+				<li class="item" id="endTime">
+					<label>结束时间：</label>
+					<input id="et" :value="detailData.endTime" readonly="readonly" class="listenEeven" />
+				</li>
+				<li class="item" id="leaveDay">
+					<label>休假天数：</label>
+					<input id="leavedays" :value="detailData.trueProjectDays" readonly="readonly" />
+
+				</li>
+
+				<li class="explain">
+					<label>休假说明：</label>
+					<div class="vacatro">
+						<textarea id="explain" maxlength="250" style="margin-bottom: 0;" v-text="detailData.remarks"></textarea>
+					</div>
+				</li>
+			</ul>
+
+			<div class="mui-card-header " v-if="historyData!=null">审批记录</div>
+			<div class="mui-row" id="approve-history" v-if="historyData!=null">
+				<div class="mui-col-sm-3 mui-col-xs-4 left-record">
+					流程阶段
+				</div>
+				<div class="mui-col-sm-9 mui-col-xs-8 left-record">
+					审批结果
+				</div>
+				<div class="mui-col-sm-12 mui-col-xs-12 left-middle-record" v-for="showData in historyData">
+					<div class="businessTable disnone" v-text="showData.businessTable"></div>
+					<p>
+						<span class="mui-col-sm-3 mui-col-xs-4 left-middle-record fl" v-text="showData.taskName"></span>
+						<span class="mui-col-sm-9 mui-col-xs-8 left-middle-record fl" v-text="showData.orgName">
+							<span v-text="showData.userName"></span>通过
+							<br/>{{showData.updateDate|moment}}</span>
+					</p>
+
+				</div>
+			</div>
+			<div style="text-align:center;padding-top:20px">
+				<span class="commit" id="save">保存</span>
+				<span class="commit" id="commit">提交</span>
+			</div>
+		</div>
+
+	</div>
+
+	<script src="../../lib/mui.js"></script>
+	<script src="../../lib/vue.min.js"></script>
+	<script src="../../assets/js/config.js"></script>
+	<script src="../../assets/js/util.js"></script>
+	<script src="../../lib/moment.min.js"></script>
+	<script src="../../lib/mui.poppicker.js"></script>
+	<script src="../../lib/mui.picker.min.js"></script>
+	<script src="../../assets/js/page/vacationletter.js"></script>
+	<script>
+		mui.init();
+		mui.plusReady(function () {
+			vacationDetail.init();
+			var self = plus.webview.currentWebview(); //获取当前窗口的WebviewObject对象 
+			vacationDetail.getVacationletterDetail(self.token, self.hid);//请求详情数据
+			VacatAdd.init();
+		});
+	</script>
+</body>

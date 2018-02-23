@@ -1,0 +1,24 @@
+@import '../app.less';
+@import '../mixin/image.less';
+//通讯录页的样式
+body,
+html {
+    height: 100%;
+    overflow: hidden;
+}
+.mui-bar {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.user-img {
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    background: url(@userImg);
+    background-size: 80px 80px;
+    border-radius: 40px;
+}
+.mui-table-view .mui-media-object {
+    max-width: 80px !important;
+    height: 80px;
+}

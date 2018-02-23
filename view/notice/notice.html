@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/mui.css" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/page/notice.css" />
+	</head>
+
+	<body>
+		<div class="mui-content mui-scroll-wrapper" id="ul-list">
+			<div class="mui-scroll">
+				<ul class="mui-table-view" id="list-tap">
+					<li class="mui-table-view-cell mui-media"v-for="item in listData">
+						<a class="mui-navigate-right"  :data-itemid = "item.id">
+							<span class="mui-media-object mui-pull-left " id="imgSpan"><img :src="picHost+item.pictureId" alt="" class="user-img"></span>
+							<div class="mui-media-body show-title">
+								<span class="notice-title">{{item.title}}</span>
+								<p class='mui-ellipsis'>{{item.departmentName}}</p>
+								<p class='mui-ellipsis '>{{item.time|moment}}</p>
+							</div>
+						</a>
+					</li>	
+				</ul>
+			</div>
+		</div>
+
+		<script src="../../lib/mui.min.js"></script>
+		<script src="../../lib/moment.min.js"></script>
+		<!--<script src="../../lib/arttemplate.js"></script>
+		<script src="../../lib/arttemplate-filter.js"></script>-->
+		<script src="../../lib/vue.min.js"></script>
+		<script src="../../assets/js/config.js"></script>
+		<script src="../../assets/js/util.js"></script>
+		<script src="../../src/js/page/notice.js"></script>
+		<script></script>
+		<script type="text/javascript">
+			mui.init({
+				pullRefresh: {
+					container: '#ul-list',
+					down: {
+						style: 'circle',
+						offset: '-8px',
+						auto: true,
+						callback: function() {
+							var userInfo = JSON.parse(plus.storage.getItem('userInfo'));
+							var token = userInfo.token;
+							//console.log("公告页的===="+token);
+							noticeList.getAnnoucementList(token, true);
+						}
+					},
+					up: {
+						contentrefresh: "正在加载...",
+						contentnomore: '没有更多数据了',
+						callback: function() {
+							var userInfo = JSON.parse(plus.storage.getItem('userInfo'));
+							var token = userInfo.token;
+							noticeList.getAnnoucementList(token, false);
+						}
+					}
+
+				}
+			});
+			mui.plusReady(function() {
+				noticeList.init();
+			});
+		</script>
+
+	</body>
+
+</html>

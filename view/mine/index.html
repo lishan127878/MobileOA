@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/mui.css" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/page/apply.css" />
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">我的申请</h1>
+		</header>
+		<script src="../../lib/mui.min.js"></script>
+		<script src="../../assets/js/config.js"></script>
+		<script src="../../assets/js/util.js"></script>
+		<script src="../../src/js/page/apply.js"></script>
+		<script type="text/javascript">
+			//启用双击监听
+			mui.init({
+				gestureConfig: {
+					doubletap: true
+				},
+				subpages: [{
+					url: 'list.html',
+					id: 'list.html',
+					styles: {
+						top: '45px',
+						bottom: '0px',
+					}
+				}]
+			});
+			var contentWebview = null;
+			document.querySelector('header').addEventListener('doubletap', function() {
+				if(contentWebview == null) {
+					contentWebview = plus.webview.currentWebview().children()[0];
+				}
+				contentWebview.evalJS("mui('#list_tab').pullRefresh().scrollTo(0,0,100)");
+			});
+		</script>
+
+	</body>
+
+</html>

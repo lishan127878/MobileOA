@@ -1,0 +1,53 @@
+<!DOCTYPE HTML >
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/mui.css" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/page/attendance.css" />
+		<title>移动打卡</title>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">移动考勤</h1>
+		</header>
+		<div class=" mui-content">
+			<div class="container " id="container"></div>
+			<div class="mask" id="mask"></div>
+			<div class="mui-scroll mui-row info" id="checkInfo">
+				<div class="mui-col-sm-5 mui-col-xs-5 describe-title">
+					打卡时间
+				</div>
+				<div class="mui-col-sm-7 mui-col-xs-7 describe-title">
+					打卡地点
+				</div>
+
+				<div class="check-info mui-row" v-for="checkInfo in listData">
+					<div class="mui-col-sm-5 mui-col-xs-5 describe-info ">
+						{{checkInfo.clockTime|moment}}
+					</div>
+					<div class="mui-col-sm-7 mui-col-xs-7 describe-info">
+						{{checkInfo.clockSite}}
+					</div>
+
+				</div>
+			</div>
+			<div class="other">
+				<div class="quit" id="getLocation">打卡</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=if1miXXtlvCUgoGGe9L3m000mDoqAHr2"></script>
+		<script src="../../lib/mui.min.js"></script>
+		<script src="../../lib/vue.min.js"></script>
+		<script src="../../assets/js/config.js"></script>
+		<script src="../../assets/js/util.js"></script>
+		<script src="../../src/js/page/location.js"></script>
+		<script type="text/javascript">
+			mui.plusReady(function() {
+				getLocation.init();
+			})
+		</script>
+	</body>
+
+</html>

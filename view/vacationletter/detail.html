@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="../../assets/css/mui.css" />
+	<link rel="stylesheet" type="text/css" href="../../assets/css/page/approval.css" />
+</head>
+<!--
+    作者：2511801192@qq.com
+    时间：2017-11-27
+    描述：休假详情页
+-->
+
+<body>
+	<header class="mui-bar mui-bar-nav">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		<h1 class="mui-title">休假详情</h1>
+	</header>
+	<div class="mui-content" id="vacationDetailObj">
+		<div class="mui-card">
+			<div class="mui-card-header ">休假信息</div>
+			<div class="mui-row">
+				<div class="mui-col-sm-6 mui-col-xs-6 list-content list-left">
+					<div class="mui-table-view-cell ">
+						休&nbsp;&nbsp;假&nbsp;&nbsp;人：
+						<span v-text="realName"></span>
+					</div>
+					<div class="mui-table-view-cell">
+						开始日期：
+						<span v-text="detailData.beginDate"></span>
+					</div>
+					<div class="mui-table-view-cell">
+						结束日期：
+						<span v-text="detailData.endDate"></span>
+					</div>
+					<div class="mui-table-view-cell">
+						休假类型：
+						<span v-text="detailData.vacationName"></span>
+					</div>
+				</div>
+				<div class="mui-col-sm-6 mui-col-xs-6 list-content">
+					<div class="mui-table-view-cell">
+						所在部门：<span v-text="departmentName"></span>
+					</div>
+					<div class="mui-table-view-cell">
+						开始时间：
+						<span v-text="detailData.beginTime"></span>
+					</div>
+					<div class="mui-table-view-cell">
+						结束时间：
+						<span v-text="detailData.endTime"></span>
+					</div>
+					<div class="mui-table-view-cell">
+						休假天数：
+						<span v-text="detailData.trueProjectDays"></span>天
+					</div>
+				</div>
+				<div class="mui-col-sm-12 list-content">
+					<div class="mui-table-view-cell">
+						休假原由：
+						<p v-text="detailData.remarks"></p>
+					</div>
+				</div>
+			</div>
+
+			<div class="mui-card-header " v-if="historyData!=null">审批记录</div>
+			<div class="mui-row" id="approve-history" v-if="historyData!=null">
+				<div class="mui-col-sm-3 mui-col-xs-4 left-record">
+					流程阶段
+				</div>
+				<div class="mui-col-sm-9 mui-col-xs-8 left-record">
+					审批结果
+				</div>
+				<div class="mui-col-sm-12 mui-col-xs-12 left-middle-record" v-for="showData in historyData">
+					<div class="businessTable disnone" v-text="showData.businessTable"></div>
+					<p>
+						<span class="mui-col-sm-3 mui-col-xs-4 left-middle-record fl" v-text="showData.taskName"></span>
+						<span class="mui-col-sm-9 mui-col-xs-8 left-middle-record fl">
+							<span v-text="showData.orgName"></span>
+							<span v-text="showData.userName"></span>通过
+							<span v-text="showData.disposeOpinion"></span>
+							<br/>{{showData.updateDate|moment}}</span>
+					</p>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<script src="../../lib/mui.min.js"></script>
+	<script src="../../lib/vue.min.js"></script>
+	<script src="../../assets/js/config.js"></script>
+	<script src="../../assets/js/util.js"></script>
+	<script src="../../src/js/page/vacationletter.js"></script>
+	<script type="text/javascript">
+		mui.init();
+		mui.plusReady(function () {
+			vacationDetail.init();
+			var self = plus.webview.currentWebview(); //获取当前窗口的WebviewObject对象 
+			vacationDetail.getVacationletterDetail(self.token, self.hid);//请求详情数据
+		});
+
+	</script>
+</body>
+
+</html>

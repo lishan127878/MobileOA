@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>我的</title>
+		<link rel="stylesheet" type="text/css" href="../../assets/css/page/mine.css" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/mui.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">我的</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-card-content user_bg">
+				<div class="mui-card-content-inner oa_name" id="user-info">
+					<p class="oa_user_img"></p>
+					<h5>
+						<span id="realName"></span>  
+						<span id="dutyName"></span>
+					</h5>
+					<h5 id="departmentName"></h5>
+				</div>
+			</div>
+			<div class="mine_tap" id="mine_tap">
+				<ul class="mui-table-view mui-table-view-chevron tab_li" data-href="myApply">
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">我的申请</a>
+					</li>
+				</ul>
+				<!--<ul class="mui-table-view mui-table-view-chevron tab_li" data-href="">
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right"> 我的工资单<i class="mui-pull-right update"></i></a>
+					</li>
+				</ul>-->
+				<ul class="mui-table-view mui-table-view-chevron tab_li" data-href="setting">
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">我的设置<i class="mui-pull-right update"></i></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<script src="../../lib/mui.min.js"></script>
+		<script src="../../lib/vue.min.js"></script>
+		<script src="../../assets/js/config.js"></script>
+		<script src="../../assets/js/util.js"></script>
+		<script src="../../src/js/page/mine.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function() {
+				myApply.init();
+			});
+		</script>
+
+	</body>
+
+</html>

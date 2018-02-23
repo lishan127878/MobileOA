@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/mui.css" />
+		<link rel="stylesheet" href="../../assets/css/page/customervisit.css" />
+	</head>
+
+	<body>
+
+		<div class=" mui-scroll-wrapper index-list" id="ul-list">
+			<div class="mui-scroll" id="visitInfo">
+				<form class="mui-input-group" id="workList">
+					<div class="mui-input-row mui-checkbox mui-left" data-href="visitFollow" v-for="item in listData">
+						<div class="show-info">
+							<label><div id="show-label">{{item.planContent}}</div></label>
+							<p>{{item.startDate|moment}}~{{item.endDate|moment}}</p>
+							<span id="followSpan" :data-itemid="item.planId">跟进</span>
+							<input name="checkbox" value="Item 1" type="checkbox" :data-itemid="item.planId" :data-itemweekid="item.weekPlanId">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="other mui-row " id="quit">
+			<!--<button class="mui-btn mui-btn-primary" id="commitBtn">提&nbsp;&nbsp;交</button>
+			<button class="mui-btn mui-btn-primary" id="followBtn">变&nbsp;&nbsp;更</button>-->
+			<div class="mui-col-sm-6 mui-col-xs-6 describe-title"id="commitBtn">提&nbsp;&nbsp;交</div>
+			<div class="mui-col-sm-6 mui-col-xs-6 describe-title"id="followBtn">变&nbsp;&nbsp;更</div>
+		</div>
+
+		<script src="../../lib/mui.min.js"></script>
+		<script src="../../lib/vue.min.js"></script>
+		<script src="../../assets/js/config.js"></script>
+		<script src="../../assets/js/util.js"></script>
+		<script src="../../src/js/page/customervisit.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				pullRefresh: {
+					container: '#ul-list',
+					down: {
+						style: 'circle',
+						offset: '-8px',
+						auto: true,
+						callback: function() {
+							var userInfo = JSON.parse(plus.storage.getItem('userInfo'));
+							var token = userInfo.token;
+							visitAdd.getPlanList(token, true);
+						}
+					},
+					up: {
+						contentrefresh: "正在加载...",
+						contentnomore: '没有更多数据了',
+						callback: function() {
+							var userInfo = JSON.parse(plus.storage.getItem('userInfo'));
+							var token = userInfo.token;
+							visitAdd.getPlanList(token, false);
+						}
+					}
+
+				}
+			});
+			mui.plusReady(function() {
+				visitAdd.init();
+			});
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,107 @@
+@import '../app.less';
+@import '../mixin/image.less';
+.fl{
+   float: left; 
+}
+.fr{
+    float: right;
+}
+.border-style{
+    border-bottom: 1px dashed #ddd;
+}
+//待办事项详情展示页
+.list-content {
+    font-size: 14px;
+}
+
+.mui-card-header {
+    justify-content: center;
+    color: #333;
+}
+
+.mui-card-header:after {
+    background-color:#fff;
+}
+//采购明细
+#extra-style{
+    background-color: #eee;
+}
+.table{
+    td{
+        padding: 5px 0;
+    }
+    tr{
+        border-bottom: 1px dashed #ddd;
+    }
+    tr:first-child{
+    border-bottom: 1px solid #ddd;
+    }
+}
+.scrollStyle{
+    width:100%;overflow-x: auto;
+}
+//审批记录
+#approve-history{
+    text-align: center;
+}
+.disnone{
+    display: none;
+}
+.left-record {
+    height: 40px;
+    background: #c8c7cc;
+    line-height: 40px;
+}
+
+.left-middle-record {
+    padding-top: 5px;
+    p {
+        margin-bottom: 5px;
+    }
+}
+
+.mui-table-view-cell {
+    position: relative;
+    overflow: hidden;
+    padding: 8px 8px;
+    -webkit-touch-callout: none;
+}
+
+.mui-table-view-cell:after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 15px;
+    height: 0px;
+    content: '';
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #fff;
+}
+
+.btn {
+    margin-top: -20px;
+    margin-bottom: 20px;
+    text-align: center;
+    button {
+        width: 80px;
+    }
+}
+
+.mui-card-header:after,
+.mui-card-footer:before {
+    height: 0;
+}
+.mui-table-view-cell.mui-active{  
+    background-color: #fff;  
+}  
+
+//媒体查询
+@media screen and (max-width: 360px) {
+    .list-content {
+        font-size: 12px;
+        p {
+            font-size: 12px;
+        }
+    }
+}

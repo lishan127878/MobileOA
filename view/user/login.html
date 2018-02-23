@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../assets/css/mui.css" rel="stylesheet" />
+		<link href="../../assets/css/page/login.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<!--<首页>-->
+		<div class="first-page" id="pageOne">
+			<div class="logo"></div>
+			<div class="mui-col-xs-9 login-from">
+				<span>瑞银产业集团</span>
+			</div>
+			<div class="other">
+				<div class="quit" id="loginBtn">登 &nbsp; &nbsp;录</div>
+			</div>
+		</div>
+		<div class="pwd-page" id="pageTwo" >
+			<div class="logo"></div>
+			<div class="mui-col-xs-9 login-from">
+				<div class="mui-input-group ">
+					<div class="mui-input-row user-row">
+						<label>用户名</label>
+						<input type="text" class="mui-input-clear" placeholder="请输入用户名" id="userNameInput">
+					</div>
+					<div class="mui-input-row pwd-row">
+						<label>密码</label>
+						<input type="password" class="mui-input-clear" placeholder="请输入密码" id="pwdInput">
+					</div>
+				</div>
+				<input type="submit" class="mui-btn mui-btn-primary mui-btn-block sub-btn" id="submit" value="登&nbsp;录" />
+			</div>
+		</div>
+		<!--手势页-->
+		<div class="gesture-page" id="pageThree">
+			<div class="mui-bar mui-bar-nav m-bar-gesture-login">
+				<a id="toPwdLogin" class="to-pwd-login mui-pull-right">
+					&nbsp;密码登录</a>
+			</div>
+			<div class="mui-content m-gl-bg">
+				<div class="head">
+					<img src="../../assets/images/login/company_logo.jpg" />
+					<div>
+						<span id="tipTxt" class="tip_txt"></span>
+					</div>
+				</div>
+				<div id='holder' class="mui-locker locker" data-locker-options='{"ringColor":"#55bec7","fillColor":"rgba(255,255,250,1)","pointColor":"#55bec7","lineColor":"#55bec7"}' data-locker-width='310' data-locker-height='310'></div>
+			</div>
+		</div>
+
+		<script src="../../lib/mui.min.js"></script>
+		<script src="../../assets/js/config.js"></script>
+		<script src="../../assets/js/util.js"></script>
+		<script src="../../lib/jsencrypt.min.js"></script>
+		<script src="../../lib/mui.locker.js"></script>
+		<script src="../../src/js/page/login.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function() {
+				PwdLogin.init();
+			});
+		</script>
+	</body>
+
+</html>

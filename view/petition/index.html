@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="../../assets/css/mui.css" />
+		<link href="../../assets/css/page/petition.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../assets/css/iconfont.css" />
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">申请填写</h1>
+		</header>
+		<div class="mui-content">
+			<ul class="petition-item" id="list">
+				<li class="item" data-href="vacationLetter">
+					<i class="icon iconfont icon-xiujiajieyu"></i>
+					<div>休假</div>
+				</li>
+				<li class="item" data-href="overtime">
+					<i class="icon iconfont icon-jiaban"></i>
+					<div>加班</div>
+				</li>
+				<li class="item" data-href="reimbursement">
+					<i class="icon iconfont icon-feiyongbaoxiao-copy"></i>
+					<div>费用报销</div>
+				</li>
+				<li class="item" data-href="customervisit">
+					<i class="icon iconfont icon-kehubaifang"></i>
+					<div>客户拜访</div>
+				</li>
+				<!--以后将会开发的功能-->
+				<!--<li class="item">
+					<i class="icon iconfont icon-ruzhi"></i>
+					<div>入职</div>
+				</li>
+				<li class="item">
+					<i class="icon iconfont icon-lizhi"></i>
+					<div>离职</div>
+				</li>
+				<li class="item">
+					<i class="icon iconfont icon-zhuanzheng"></i>
+					<div>转正</div>
+				</li>-->
+			</ul>
+		</div>
+	</body>
+	<script src="../../lib/mui.min.js"></script>
+	<script src="../../assets/js/config.js"></script>
+	<script src="../../assets/js/util.js"></script>
+	<script src="../../src/js/page/petition.js"></script>
+	<script type="text/javascript">
+		mui.init();
+		mui.plusReady(function() {
+			vacation.init();
+		});
+	</script>
+
+</html>

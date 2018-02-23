@@ -1,0 +1,28 @@
+@import '../app.less';
+@import '../mixin/image.less';
+//'我的'页的样式
+.user_bg {
+//  background: -webkit-linear-gradient(plum, lightblue);
+//  background: -o-linear-gradient(plum, lightblue);
+//  background: -moz-linear-gradient(plum, lightblue);
+//  background: linear-gradient(plum, lightblue);
+background:cornflowerblue;
+}
+.oa_name {
+    text-align: center;
+    .oa_user_img {
+        height: 80px;
+        width: 80px;
+        border-radius: 40px;
+        border: 1px solid #ccc;
+        margin: 0 auto;
+        background: url(@userImg);
+    }
+    h5 {
+        margin-top: 10px;
+        color: white;
+    }
+}
+.mine_tap {
+    margin-top: 20px;
+}

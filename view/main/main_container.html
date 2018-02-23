@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../assets/css/mui.css" />
+	</head>
+
+	<body>
+		<nav class="mui-bar mui-bar-tab" id="pageTo">
+			<a class="mui-tab-item mui-active" data-href="appIndex">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">应用</span>
+			</a>
+			<a class="mui-tab-item" data-href="rosterIndex">
+				<span class="mui-icon mui-icon-contact"></span>
+				<span class="mui-tab-label">通讯录</span>
+			</a>
+			<a class="mui-tab-item" data-href="mineIndex">
+				<span class="mui-icon mui-icon-gear"></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</nav>
+		<script src="../../lib/mui.js"></script>
+		<script src="../../assets/js/config.js"></script>
+		<script src="../../assets/js/util.js"></script>
+		<script src="../../src/js/page/container.js"></script>
+		<script src="../../src/js/page/master.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+			mui.plusReady(function() {
+				master.init();
+			});
+		</script>
+	</body>
+
+</html>

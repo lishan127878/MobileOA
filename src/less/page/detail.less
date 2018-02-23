@@ -1,0 +1,91 @@
+@import '../app.less';
+@import '../mixin/image.less';
+//我的申请信息详情页样式
+.list-content {
+    font-size: 12px;
+    p {
+        font-size: 13px;
+        text-indent: 2em;
+        text-align: justify;
+        text-justify: distribute-all-lines;
+        
+        
+    }
+}
+
+.mui-card-header {
+    justify-content: center;
+}
+
+.mui-card-header:after {
+    background-color: #fffff;
+}
+
+.left-record,
+.right-record {
+    text-align: center;
+    height: 40px;
+    background: #C8C7CC;
+    line-height: 40px;
+}
+
+.left-middle-record {
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
+}
+
+.right-middle-record {
+    text-align: center;
+    height: 60px;
+    padding-top: 10px;
+    p {
+        margin: 0px 0px;
+    }
+}
+
+.left-bottom-record {
+    text-align: center;
+    height: 70px;
+    line-height: 70px;
+}
+
+.right-bottom-record {
+    text-align: center;
+    height: 60px;
+    p {
+        margin: 0px 0px;
+    }
+}
+
+.mui-table-view-cell {
+    position: relative;
+    overflow: hidden;
+    padding: 8px 8px;
+    -webkit-touch-callout: none;
+}
+
+.mui-table-view-cell:after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 15px;
+    height: 0px;
+    content: '';
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    background-color: #fffff;
+}
+
+.btn {
+    margin-top: -20px;
+    margin-bottom: 20px;
+    text-align: center;
+    button {
+        width: 80px;
+    }
+}
+
+.refuse {
+    display: none;
+}

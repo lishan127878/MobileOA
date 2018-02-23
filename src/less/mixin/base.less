@@ -1,0 +1,72 @@
+/*
+ * 说明：基础mixins——可选的全局样式&样式变量定义
+ * 创建人：zwz
+ * 创建时间：2017/5/4 11:40
+ * 修改人：王有锴
+ * 修改时间：2017/6/26
+ */
+
+//应用主色调
+@mainColor: #fff;
+@mainBorderColor: #f7e55e;
+//各页面内容部分背景色
+@mainBgColor: #f1eff4;
+@grayTxtColor: #999;
+
+#base{
+    .title(){
+        font-family: pingfang;
+        color: #585858;
+        font-size: 14px;
+    }
+    .subTitle(){
+        font-family: pingfang;
+        color: #585858;
+        font-size: 13px;
+    }
+    .content(){
+        font-family: pingfang;
+        color: #B5B5B5;
+        font-size: 12px;
+    }
+    .remark(){
+        font-family: pingfang;
+        color: #bfbfbf;
+        font-size: 10px;
+    }
+}
+
+/* 清除浮动 */
+.f-clearfix {
+  display: block;
+  &:after {
+    display: block;
+    content: ".";
+    height: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+
+//文本段落超过@line-num行溢出隐藏
+.f-ellipsis(@line-num: 2){
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: @line-num;
+    overflow: hidden;
+}
+
+//底部一个像素的分割线
+.f-1px-border-bottom(@color: #eee) {
+  position: relative;
+  &::after {
+    display: block;
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%;
+    border-top: 1px solid @color;
+    content: '';
+    transform: scaleY(0.5);
+  }
+}

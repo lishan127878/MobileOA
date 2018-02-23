@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../assets/css/mui.css" rel="stylesheet" />
+		<link href="../../assets/css/page/about.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">关于</h1>
+		</header>
+		<div class="mui-content">
+			<div class="logo"></div>
+			<div class="company-name">瑞银产业集团</div>
+		</div>
+		<div class="version">
+			<span>版本号</span>
+			<span class="versionnum" id="version"></span>
+		</div>
+
+		<script src="../../lib/mui.min.js"></script>
+		<script src="../../assets/js/util.js"></script>
+		<script src="../../assets/js/config.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function(){
+				var version = plus.runtime.version;
+				//console.log("显示有无版本号"+version);
+				document.getElementById('version').innerHTML = version;
+			})
+		</script>
+	</body>
+
+</html>

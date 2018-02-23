@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/mui.css" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/page/apply.css" />
+	</head>
+	<body>
+		<div class="mui-content mui-scroll-wrapper" id="ul-list">
+			<div class="mui-scroll">
+				<ul class="mui-table-view" id="list_tab">
+					<li class="mui-table-view-cell mui-media"  v-for="item in listData">
+						<a class="show-content" :data-itemid="item.id">
+							<div class="mui-media-body mui-pull-left ">
+								<span>加班申请</span>
+								
+								<p class='mui-ellipsis '>加班时长：{{item.workTime}}天</p>
+								<p class='mui-ellipsis '>加班时间：{{item.workStartTime|moment}}</p>
+								<p class='mui-ellipsis' >申请时间：{{item.applyDate|moments}}</p>
+							</div>
+							<div class="mui-media-body mui-pull-right">
+								<div class="apply-info" v-if="item.applyStatus==0">未提交</div>
+								<div class="apply-info" v-if="item.applyStatus==1">审核中</div>
+								<div class="apply-info" v-if="item.applyStatus==2">审核通过</div>
+								<div class="apply-info" v-if="item.applyStatus==3">回退</div>
+							</div>
+						</a>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+		<script src="../../lib/mui.min.js"></script>
+		<script src="../../lib/vue.min.js"></script>
+		<script src="../../assets/js/config.js"></script>
+		<script src="../../assets/js/util.js"></script>
+		
+		<script src="../../assets/js/page/overtime.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				pullRefresh: {
+					container: '#ul-list',
+					down: {
+						style: 'circle',
+						offset: '-8px',
+						auto: true,
+						callback: function() {
+							var userInfo = JSON.parse(plus.storage.getItem('userInfo'));
+							var token = userInfo.token;
+							overtimeDetail.getOvertimeList(token, true);
+						}
+					},
+					up: {
+						contentrefresh: "正在加载...",
+						contentnomore: '没有更多数据了',
+						callback: function() {
+							var userInfo = JSON.parse(plus.storage.getItem('userInfo'));
+							var token = userInfo.token;
+							overtimeDetail.getOvertimeList(token, false);
+						}
+					}
+
+				}
+			});
+			mui.plusReady(function() {
+				overtimeDetail.init();
+			});
+		</script>
+
+	</body>
+
+</html>

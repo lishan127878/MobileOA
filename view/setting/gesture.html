@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>修改手势密码</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../assets/css/mui.css" rel="stylesheet" />
+		<link href="../../assets/css/page/gesture.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">修改手势密码</h1>
+		</header>
+		<div class="mui-content m-gl-bg">
+			<div class="head">
+				<img src="../../assets/images/login/company_logo.jpg" />
+				<div>
+					<span id="tipTxt" class="tip_txt"></span>
+				</div>
+			</div>
+			<div id='alert' class="alert"></div>
+			<div id='holder' class="mui-locker locker" data-locker-options='{"ringColor":"#55bec7","fillColor":"rgba(255,255,250,1)","pointColor":"#55bec7","lineColor":"#55bec7"}' data-locker-width='310' data-locker-height='310'></div>
+		</div>
+		<script src="../../lib/mui.min.js"></script>
+		<script src="../../lib/mui.locker.js"></script>
+		<script src="../../lib/jsencrypt.min.js"></script>
+		<script src="../../assets/js/config.js"></script>
+		<script src="../../assets/js/util.js"></script>
+	    <script src="../../src/js/page/password.js"></script>
+		<script>
+			mui.init();
+			mui.plusReady(function() {
+				ModifyGesture.init();
+			})
+		</script>
+	</body>
+
+</html>

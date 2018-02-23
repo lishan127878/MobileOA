@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>加班填写</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../assets/css/mui.css" rel="stylesheet" />
+		<link href="../../assets/css/page/customervisit.css" rel="stylesheet" />
+		<link href="../../assets/css/mui.poppicker.css" rel="stylesheet" />
+		<link href="../../assets/css/mui.picker.min.css" rel="stylesheet" />
+
+	</head>
+
+	<body>
+		<!--创建申请头部布局-->
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">变更信息填写</h1>
+		</header>
+		<div class="mui-content main">
+			<div class="vacation-fill-content" id="changeContent">
+				<ul>
+					<li class="item" id="leavestart">
+						<label>开始时间：</label><input id="start" placeholder="请填写开始时间" readonly="readonly" />
+					</li>
+					<li class="item" id="leaveend">
+						<label>结束时间：</label><input id="end" placeholder="请填写结束时间" readonly="readonly" />
+					</li>
+					<li class="explain" id="last">
+						<label>计划内容：</label>
+						<div class="vacatro">
+							<textarea id="explain" placeholder="请填写计划内容" maxlength="250" style="margin-bottom: 0;"></textarea>
+						</div>
+					</li>
+					<li class="item" id="mechanism">
+						<label>被访机构：</label><input id="mechanismInput" placeholder="请选择被访机构" readonly="readonly" />
+					
+					</li>
+					<li class="item" id="personnel">
+						<label>被访人员：</label><input id="personnelInput" placeholder="请选择被访人员"readonly="readonly" />	
+					</li>
+				</ul>
+				<div id="commit" class="commit">
+					<span>提&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;交</span>
+				</div>
+
+			</div>
+		</div>
+
+		<script src="../../lib/mui.min.js"></script>
+		<script src="../../lib/vue.min.js"></script>
+		<script src="../../assets/js/config.js"></script>
+		<script src="../../assets/js/util.js"></script>
+		<script src="../../lib/moment.min.js"></script>
+		<script src="../../lib/mui.poppicker.js"></script>
+		<script src="../../lib/mui.picker.min.js"></script>
+		<script src="../../src/js/page/customervisit.js"></script>
+		<script>
+			mui.plusReady(function() {
+				visitChange.init();
+			});
+		</script>
+	</body>

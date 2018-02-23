@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/mui.css" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/page/approval.css" />
+	</head>
+<!--
+	作者：2511801192@qq.com
+	时间：2017-11-22
+	描述：待办费用报销页面
+-->
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">待办事项详情</h1>
+		</header>
+		<div class="mui-content" id="approve-detail">
+			<div class="mui-card">
+				<div class="mui-card-header" id="taskName">费用报销信息</div>
+				<div class="mui-row">
+					<div class="mui-col-sm-6 mui-col-xs-6 list-content list-left">
+						<div class="mui-table-view-cell ">
+							申请人：<span v-text="detailData.applicantName"></span>
+							<span id="auditStatus" class="disnone" v-text="detailData.exmRslt"></span>
+						</div>
+
+					</div>
+					<div class="mui-col-sm-6 mui-col-xs-6 list-content">
+						<div class="mui-table-view-cell">
+							所在部门：<span v-text="detailData.departmentName"></span>
+						</div>
+
+					</div>
+					<div class="mui-col-sm-12 mui-col-xs-12 list-content">
+						<div class="mui-table-view-cell">
+							<ul class="mui-table-view">
+								<li class="mui-table-view-cell mui-collapse mui-active">
+									<a href="#" id="extra-style">外埠出差费用报销单（代转账凭证）</a>
+									<div class="mui-collapse-content">
+										<div class="scrollStyle">
+											<table class="table" width="900">
+												<tr>
+													<td >项目名称</td>
+													<td >出差目的地</td>
+													<td >交通工具</td>
+													<td>开始时间</td>
+													<td>结束时间</td>
+													<td>开始地点</td>
+													<td>结束地点</td>
+													<td>车船费</td>
+													<td>在途补贴</td>
+													<td>住宿费</td>
+													<td>市内交通费</td>
+													<td>事由</td>
+												</tr>
+												<tr v-for="data in detailOuterData">
+													<td v-text="data.projectName"></td>
+													<td v-text="data.travelDestination"></td>
+													<td v-text="data.trafficTool"></td>
+													<td v-text="data.starDate"></td>
+													<td v-text="data.endDate"></td>
+													<td v-text="data.starAddress"></td>
+													<td v-text="data.endAddress"></td>
+													<td class="ticketAmount" v-text="data.ticketAmount"></td>
+													<td class="totalAmount" v-text="data.totalAmount"></td>
+													<td class="homeamount" v-text="data.homeamount"></td>
+													<td class="otheramount" v-text="data.otheramount"></td>
+													<td v-text="data.causes"></td>
+												</tr>
+												<tr>
+													<td colspan="12" id="outerCost"></td>
+												</tr>
+											</table>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+					<div class="mui-col-sm-12 mui-col-xs-12 list-content">
+						<div class="mui-table-view-cell">
+							<ul class="mui-table-view">
+								<li class="mui-table-view-cell mui-collapse mui-active">
+									<a  href="#" id="extra-style">费用报销审批单</a>
+									<div class="mui-collapse-content">
+										<div class="scrollStyle">
+											<table class="table" width="600">
+												<tr>
+													<td>项目名称</td>
+													<td>费用金额</td>
+													<td>报销类型</td>
+													<td>票据张数</td>
+													<td>开始时间</td>
+													<td>结束时间</td>
+													<td>备注</td>
+												</tr>
+												<tr v-for="data in detailInsideData">
+													<td v-text="data.projectName"></td>
+													<td class="icost" v-text="data.costAmount"></td>
+													<td v-text="data.costCName"></td>
+													<td v-text="data.costLevel"></td>
+													<td v-text="data.starDate"></td>
+													<td v-text="data.endDate"></td>
+													<td v-text="data.remark"></td>
+												</tr>
+												<tr>
+													<td colspan="7" id="insideCost"></td>
+												</tr>
+
+											</table>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+					<div class="mui-col-sm-12 mui-col-xs-12 list-content">
+						<div class="mui-table-view-cell">
+							报销费用合计：<span id="totalCost"></span>元
+						</div>
+					</div>
+					<div class="mui-col-sm-12 mui-col-xs-12 list-content">
+						<div class="mui-table-view-cell">
+							出差原由：
+							<p v-text="detailData.remark"></p>
+						</div>
+					</div>
+				</div>
+
+				<div class="mui-card-header" v-if="historyData!=null">审批记录</div>
+				<div class="mui-row" id="approve-history" v-if="historyData!=null">
+					<div class="mui-col-sm-3 mui-col-xs-4 left-record">
+						流程阶段
+					</div>
+					<div class="mui-col-sm-9 mui-col-xs-8 left-record">
+						审批结果
+					</div>
+
+					<div class="mui-col-sm-12 mui-col-xs-12 left-middle-record" v-for="showData in historyData">
+						<div class="businessTable disnone" v-text="showData.businessTable"></div>
+						<p>
+							<span class="mui-col-sm-3 mui-col-xs-4 left-middle-record fl" v-text="showData.taskName"></span>
+							<span class="mui-col-sm-9 mui-col-xs-8 left-middle-record fl"><span v-text="showData.orgName"></span><span v-text="showData.userName"></span>通过<span v-text="showData.disposeOpinion"></span><br/>{{showData.updateDate|moment}}</span>
+						</p>
+
+					</div>
+				</div>
+
+				<div class="mui-card-header ">审批意见</div>
+				<div class="mui-row">
+					<div class="mui-card-content-inner">
+						<textarea rows="6" cols="56" v-model="disposeOpinion"></textarea>
+					</div>
+				</div>
+				<div class="mui-row btn" id="btn-group">
+					<button class="mui-btn mui-btn-primary" data-status="1" v-bind:data-pid="detailData.id">同意</button>
+					<button class="mui-btn mui-btn-primary" data-status="2" v-bind:data-pid="detailData.id">不同意</button>
+				</div>
+			</div>
+
+		</div>
+		<script src="../../lib/mui.js"></script>
+		<script src="../../lib/vue.min.js"></script>
+		<script src="../../assets/js/config.js"></script>
+		<script src="../../assets/js/util.js"></script>
+		<script src="../../assets/js/page/schedule.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.plusReady(function() {
+				window.formattingDataUtil.transmitTodo();//请求详情数据
+			});
+			//计算费用
+			window.formattingDataUtil.getTotalExpense();
+		</script>
+	</body>
+
+</html>

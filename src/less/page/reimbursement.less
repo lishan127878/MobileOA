@@ -1,0 +1,282 @@
+@import '../app.less';
+@import '../mixin/image.less';
+html,
+body {
+    height: 100%;
+}
+
+.main {
+    height: 100%;
+}
+
+.vacation-fill-content {
+    margin: 28px 15px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    font-size: 14px;
+    padding-bottom: 20px;
+    .item,
+    .explain,
+    {
+        border-bottom: 1px solid #CCCCCC;
+        padding: 15px 0px;
+        margin: 0px 15px;
+    }
+    .item:last-child {}
+    .item:before,
+    .explain:before {
+        width: 0;
+        height: 0;
+        margin-left: -15px;
+        border-left: 4px solid #4C90F7;
+        border-top: 3px solid #4C90F7;
+        border-bottom: 3px solid #4C90F7;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        content: "";
+    }
+    .mui-table-view-cell:after {
+        height: 0;
+    }
+    .mui-table-view-cell {
+        border-bottom: 1px solid #ccc;
+        margin: 0 15px;
+    }
+    .mui-table-view-cell>a:not(.mui-btn) {
+        margin-left: -25px;
+    }
+    .extraPic ul {
+        padding-left: 25px;
+    }
+    .item label,
+    .explain label {
+        margin-left: 10px;
+    }
+    .item input {
+        font-size: 14px;
+        margin-left: 5px;
+        border: none;
+        width: 150px;
+    }
+    .item span {
+        padding-left: 5px;
+    }
+    #special-style {
+        border-bottom: 0;
+        padding: 5px 0;
+    }
+    .num {
+        height: 18px;
+        margin: 0;
+        padding: 0;
+    }
+    #vacaNum,
+    #arrangeNum {
+        width: 50%;
+        height: 21px;
+        margin-bottom: 0;
+        padding: 1px;
+    }
+    .vacatro {
+        background: #CCCCCC;
+        margin-top: -22px;
+        margin-left: 76px;
+        border-radius: 5px;
+    }
+    .vacatro textarea {
+        font-size: 14px;
+        border: none;
+        background: #CCCCCC;
+    }
+    .btn {
+        border: 0;
+        padding: 0;
+        line-height: 30px;
+    }
+    .camera,
+    .gallery {
+        display: inline-block;
+        color: #1755AF;
+        background: #ccc;
+        border-radius: 3px;
+        padding: 2px 8px;
+        padding-left: 30px;
+        background-position: 6px center;
+        background-repeat: no-repeat;
+        background-size: 20px 20px;
+    }
+    .commit {
+        margin: 20px;
+        margin-top: 60px;
+        padding: 12px;
+        border-radius: 5px;
+        color: #FFFFFF;
+        font-size: 18px;
+        text-align: center;
+        background: #4C90F7;
+    }
+    .addbtn {
+        width: 90%;
+        margin-left: 5%;
+        div {
+            text-align: center;
+            display: inline;
+        }
+        .commite span,
+        .continue span {
+            padding: 10px 25px;
+            padding-left: 55px;
+            background: #4C90F7;
+            border-radius: 8px;
+            color: #FFFFFF;
+            font-size: 18px;
+            background-position: 25px center;
+            background-repeat: no-repeat;
+            background-size: 25px 25px;
+            //          background-image: url(@icon-vacation-commit);
+        }
+        .continue {
+            float: right;
+        }
+    }
+    .left:before {
+        width: 0;
+        height: 0;
+        border-left: 1px solid #1755AF;
+        content: "";
+    }
+    .selectnum {
+        display: none;
+    }
+    .publish-circle-photo-list {
+        margin: 10px auto;
+        padding: 0;
+        padding-top: .5rem;
+        width: 90%;
+        min-height: 5rem;
+        li {
+            height: 4rem;
+            width: 4rem;
+            padding: 0;
+            margin-left: .1rem;
+            margin-right: .5rem;
+            margin-bottom: .5rem;
+            list-style: none;
+            float: left;
+            position: relative;
+            &.add_pic_btn {
+                height: 4rem;
+                width: 4rem;
+                border-radius: 8px;
+                background: cornflowerblue;
+                text-align: center;
+                font-size: 54px;
+                line-height: 55px;
+                color: #fff;
+            }
+            img {
+                height: 4rem;
+                width: 4rem;
+                border-radius: 8px;
+            }
+            .publish-circle-photo-list .icon-remove {
+                position: absolute;
+                top: 3px;
+                right: 3px;
+                color: red;
+            }
+            #public_cancel {
+                width: 30%;
+                height: 30%;
+                position: absolute;
+                top: -5px;
+                right: -5px;
+                background-color: none!important;
+                z-index: 1;
+            }
+            .publish-avar {
+                background-color: #1296db;
+                width: 4rem;
+                height: 4rem;
+                border-radius: 5px;
+                text-align: -webkit-center;
+                /* vertical-align: middle; */
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                img {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                }
+            }
+        }
+    }
+    .flow {
+        text-align: center;
+        font-size: 16px;
+        margin: 0px 15px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+    .flow span {
+        float: left;
+        margin-top: 5px;
+    }
+    .listitem {
+        width: 38%;
+        margin-left: 31%;
+    }
+    .approve img {
+        margin-top: 5px;
+        height: 20px;
+    }
+    .approve li {
+        position: relative;
+        text-align: center;
+        font-size: 14px;
+        padding: 5px 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 1px 1px #4C90F7;
+    }
+    .rt {
+        width: 0px;
+        height: 0px;
+        border-width: 10px 0px 10px 10px;
+        border-style: solid;
+        border-color: #ccc transparent transparent transparent;
+        position: absolute;
+        top: 2px;
+        right: 2px;
+    }
+    li:first-child {
+        margin-top: 0px;
+    }
+    .taskId,
+    .personId {
+        display: none;
+    }
+    .mui-input-row label {
+        padding: 0;
+        line-height: 30px;
+    }
+    .mui-input-row select {
+        height: 30px;
+        font-size: 14px
+    }
+    #extra-style{
+            background-color: #eee;
+    }
+    #padding-style {
+        padding: 8px 0;
+    }
+    .mui-input-row input {
+        font-size: 14px;
+        height: 30px;
+    }
+    .mui-input-row textarea {
+        font-size: 14px;
+    }
+    .mui-row label span{
+        color: red;
+    }
+}

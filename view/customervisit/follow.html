@@ -1,0 +1,87 @@
+<!DOCTYPE HTML >
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/mui.css" />
+		<link rel="stylesheet" type="text/css" href="../../assets/css/page/customervisit.css" />
+		<title>移动打卡</title>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">客户跟进</h1>
+		</header>
+		<div class=" mui-content follow-info" id="container">
+			<div class="container " >
+				<div class="mui-card " v-for="listData">
+					<div class="mui-row " >
+						<div class="mui-col-sm-6 mui-col-xs-6 list-content list-left">
+							<div class="mui-table-view-cell">
+								开始日期：{{listData.startDate|moment}}
+							</div>
+
+							<div class="mui-table-view-cell">
+								被访机构：{{listData.customerNumName}}
+							</div>
+							<span class="show-pid" id="showPid">{{listData.planId}}</span>
+						</div>
+						<div class="mui-col-sm-6 mui-col-xs-6 list-content">
+
+							<div class="mui-table-view-cell">
+								结束日期：{{listData.endDate|moment}}
+							</div>
+							<div class="mui-table-view-cell">
+								被访人：{{listData.customerStaffName}}
+							</div>
+
+						</div>
+						
+					</div>
+					<div class="mui-col-sm-12 list-content" style="display:block">
+							<div class="mui-table-view-cell">
+								计划内容：
+								<p id="followupContent">{{listData.planContent}}</p>
+							</div>
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="mui-scroll mui-row info" id="checkInfo" >
+				
+				<div class="mui-col-sm-12 mui-col-xs-12 describe-title">
+					跟进明细
+				</div>
+				<div class="check-info mui-row" v-for="checkInfo in followData">
+					<span class="showplanId" >{{checkInfo.planId}}</span>
+					<div class="mui-col-sm-3 mui-col-xs-3 describe-info ">
+						{{checkInfo.followupVisitTime|moment}}
+					</div>
+					<div class="mui-col-sm-9 mui-col-xs-9 describe-info text-follow">
+						{{checkInfo.followupContent}}
+					</div>
+					
+				</div>
+			</div>
+			<div class="other" id="followOther">
+				<div class="quit" id="commit">跟&nbsp;&nbsp;进</div>
+			</div>
+		</div>
+
+		<script src="../../lib/mui.min.js"></script>
+		<script src="../../lib/vue.min.js"></script>
+		<script src="../../assets/js/config.js"></script>
+		<script src="../../assets/js/util.js"></script>
+		<script src="../../src/js/page/customervisit.js"></script>
+		<script type="text/javascript">
+			mui.plusReady(function() {
+				visitFollow.init();
+			})
+		</script>
+	</body>
+
+</html>

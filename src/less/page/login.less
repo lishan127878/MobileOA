@@ -1,0 +1,153 @@
+@import '../app.less';
+@import '../mixin/image.less';
+//app打开首页的样式
+body,
+html {
+    height: 100%;
+    width: 100%;
+    background: white;
+    position: fixed;
+}
+
+.first-page {
+    //  display:none;
+    text-align: center;
+    .logo {
+        background: url(@loginCompanyLogon) no-repeat;
+        background-size: 280px 100px;
+        height: 100px;
+        width: 280px;
+        margin: 60px auto 0 auto;
+    }
+    .pwd-row {
+        margin-top: 20px;
+    }
+    .login-from {
+        width: 90%;
+        height: 250px;
+        margin: 0 auto;
+        padding-top: 10px;
+        span {
+            font-size: 24px;
+        }
+    }
+    .other {
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        bottom: 70px;
+        .about {
+            color: #00C79F;
+            font-size: 13px;
+        }
+        span {
+            font-size: 13px;
+            color: #CCCCCC;
+        }
+        .quit {
+            width: 80%;
+            margin-left: 10%;
+            background: #007AFF;
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 5px;
+            color: #FFFFFF;
+        }
+    }
+}
+
+//密码登录页
+.pwd-page {
+    //display: black;
+    display: none;
+    .mui-input-group:before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        content: '';
+        -webkit-transform: scaleY(.5);
+        transform: scaleY(.5);
+        background-color: #ffffff;
+    }
+    .mui-input-group:after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        content: '';
+        -webkit-transform: scaleY(.5);
+        transform: scaleY(.5);
+        background-color: #ffffff;
+    }
+    .logo {
+        background: url(@loginCompanyLogon) no-repeat;
+        background-size: 190px 63px;
+        height: 63px;
+        width: 190px;
+        margin: 60px auto;
+    }
+    .pwd-row {
+        margin-top: 20px;
+    }
+    .login-from {
+        width: 90%;
+        height: 250px;
+        margin: 60px auto;
+        padding-top: 10px;
+    }
+    .sub-btn {
+        margin-top: 50px;
+        height: 44px;
+        border-radius: 20px;
+    }
+}
+
+//手势登陆页
+.gesture-page {
+    display: none;
+    //display:block;
+    height: 100%;
+    width: 100%;
+    background: white;
+    .mui-bar {
+        background: blue;
+    }
+    .m-bar-gesture-login {
+        height: 46px;
+        background: cornflowerblue;
+        .to-pwd-login {
+            font-size: 18px;
+            line-height: 46px;
+            color: #FFFFFF;
+        }
+    }
+    .m-gl-bg {
+        background: white;
+        padding-top: 34px;
+        .head {
+            margin-top: 16px;
+            text-align: center;
+        }
+        .head img {
+            margin-top: 30px;
+            height: 63px;
+            width: 190px;
+        }
+        .head div {
+            margin-top: 10px;
+            font-weight: bold;
+            .tip_txt {
+                height: 20px;
+                display: block;
+                height: ;
+            }
+        }
+        .locker {
+            width: 300px;
+            height: 300px;
+            border-radius: 5px;
+            margin: 25px auto;
+        }
+    }
+}

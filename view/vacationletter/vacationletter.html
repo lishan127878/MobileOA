@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="../../assets/css/mui.css" />
+	<link rel="stylesheet" type="text/css" href="../../assets/css/page/apply.css" />
+</head>
+<!--
+        	作者：2511801192@qq.com
+        	时间：2017-11-27
+        	描述：休假内容页
+-->
+
+<body>
+	<div class="mui-content mui-scroll-wrapper" id="ul-list">
+		<div class="mui-scroll">
+			<ul class="mui-table-view" id="list_tab">
+				<li class="mui-table-view-cell mui-media" v-for="data in listData">
+
+					<a class="show-content" :data-href="data.appStatus==1?'vacationletterEdit':'vacationDetail'" v-bind:data-id="data.id">
+						<div class="mui-media-body mui-pull-left">
+							<p class='mui-ellipsis'>休假天数：
+								<span v-text="data.trueProjectDays"></span>天</p>
+							<p class='mui-ellipsis '>休假类型：
+								<span v-text="data.vacationName"></span>
+							</p>
+							<p class='mui-ellipsis '>申请时间：
+								<span v-text="data.appDate"></span>
+							</p>
+							<p class='mui-ellipsis '>申请状态：
+								<span v-text="data.statusName"></span>
+							</p>
+						</div>
+						<div class="mui-media-body mui-pull-right">
+							<div class="apply-info" v-if="data.exmRslt==1">已通过</div>
+							<div class="apply-info" v-else-if="data.exmRslt==2">未通过</div>
+							<div class="apply-info" v-else-if="data.appStatus==1">未提交</div>
+							<div class="apply-info" v-else>审核中</div>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<script src="../../lib/mui.min.js"></script>
+	<script src="../../lib/vue.min.js"></script>
+	<script src="../../assets/js/config.js"></script>
+	<script src="../../assets/js/util.js"></script>
+	<script src="../../assets/js/page/vacationletter.js"></script>
+	<script type="text/javascript">
+		//休假申请列表下拉上拉刷新
+		window.formattingDataUtil.pullRefreshList("vacationList");
+		mui.plusReady(function () {
+			vacationList.init();
+		});
+	</script>
+
+</body>
+
+</html>

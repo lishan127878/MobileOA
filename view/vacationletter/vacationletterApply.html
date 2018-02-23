@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>休假填写</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../assets/css/mui.css" rel="stylesheet" />
+		<link href="../../assets/css/page/vacationfill.css" rel="stylesheet" />
+		<link href="../../assets/css/mui.poppicker.css" rel="stylesheet" />
+		<link href="../../assets/css/mui.picker.min.css" rel="stylesheet" />
+		<style>
+			.leaveId {
+				display: none;
+			}
+		</style>
+	</head>
+<!--
+        	作者：2511801192@qq.com
+        	时间：2017-11-27
+        	描述：休假申请页
+       -->
+	<body>
+		<!--创建休假申请头部布局-->
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">创建休假申请</h1>
+		</header>
+		<div class="mui-content main" id="vacationApplyObj">
+			<div class="vacation-fill-content">
+				<ul>
+					<li class="item" id="dummy">
+						<label>申&nbsp;&nbsp;请&nbsp;人：</label><span id="username" style="padding-left: 5px;" v-text="realName"></span>
+						<span class="leaveId" id="vocationId"></span>
+					</li>
+					<li class="item" id="dummy">
+						<label>所在机构：</label><span id="department" style="padding-left: 5px;" v-text="departmentName"></span><span id="departmentId" class="leaveId"></span>
+					</li>
+					
+					<li class="item" id="leavetype">
+						<label>休假类型：</label><input id="type" placeholder="请选择休假类型" readonly="readonly" style="width: 100px;"/>
+						<span id="value" class="selectnum"></span><span id="showDays"></span>
+					</li>
+
+					<li class="item" id="leavestart">
+						<label>开始日期：</label><input id="start" placeholder="请填写开始时间" readonly="readonly" class="listenEeven" />
+					</li>
+					<li class="item" id="startTime">
+						<label>开始时间：</label><input id="st" placeholder="请选择开始时间" readonly="readonly"  class="listenEeven"/>
+					</li>
+					<li class="item" id="leaveend">
+						<label>结束日期：</label><input id="end" placeholder="请填写结束时间" readonly="readonly"  class="listenEeven"/>
+					</li>
+					<li class="item" id="endTime">
+						<label>结束时间：</label><input id="et" placeholder="请选择结束时间" readonly="readonly" class="listenEeven"/>
+					</li>
+					<li class="item" id="leaveDay">
+						<label>休假天数：</label><input id="leavedays" placeholder="休假天数" readonly="readonly"  class="qq"/>
+						<span id="nums" class="selectnum"></span>
+					</li>
+					<li class="explain">
+						<label>休假说明：</label>
+						<div class="vacatro">
+							<textarea id="explain" placeholder="请填写休假说明" maxlength="250" style="margin-bottom: 0;"></textarea>
+						</div>
+					</li>
+				</ul>
+				<div id="save" class="commit"><span>保&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;存</span></div><span id="commit"></span>
+			</div>
+		</div>
+
+		<script src="../../lib/mui.js"></script>
+		<script src="../../lib/vue.min.js"></script>
+		<script src="../../assets/js/config.js"></script>
+		<script src="../../assets/js/util.js"></script>
+		<script src="../../lib/moment.min.js"></script>
+		<script src="../../lib/mui.poppicker.js"></script>
+		<script src="../../lib/mui.picker.min.js"></script>
+		<script src="../../assets/js/page/vacationletter.js"></script>
+		<script>
+			mui.plusReady(function() {
+				VacatAdd.init();
+			});
+		</script>
+	</body>
